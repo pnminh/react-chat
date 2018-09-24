@@ -5,7 +5,6 @@ export default class Modal extends Component {
         super();
 
     }
-
     render() {
         return (
             <div className="modal">
