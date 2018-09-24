@@ -1,0 +1,36 @@
+.message{
+    margin:5px;
+    border-radius: 25px;
+    font-size: 90%;
+}
+.message-main {
+    display: inline-block;
+    margin: 5px 20px;
+    width: 75%;
+    vertical-align: middle;
+    
+}
+.message-main div{
+    margin:10px;
+}
+.message-time {
+    display: inline-block;
+}
+
+.message .message-main .message-time{
+    height:60px;
+    padding:2px;
+}
+.message:nth-of-type(odd) {
+    background-color: grey;
+    color:white;
+}
+
+.message:nth-of-type(even) {
+    background-color: lightgray;
+    color:black;
+}
+.bold{
+    font-weight: bold;
+    font-size: 110%;
+}

@@ -7,8 +7,7 @@ export default class RoomList extends Component {
         this.state = {
             rooms: [],
             isRoomLoaded: false,
-            addRoomText: '',
-            currentRoom:0
+            addRoomText: ''
         }
     }
     componentDidMount() {
@@ -31,10 +30,6 @@ export default class RoomList extends Component {
     cancelSubmitNewRoom = () => {
         this.setState({ addRoomText: '', isFormOpen: false })
     }
-    handleEnterRoom =(roomKey) =>{
-        const room = this.state.rooms.find(room => room.key === roomKey);
-        this.setState({currentRoom:room});
-    }
     renderAddRoomForm() {
         if (this.state.isFormOpen) {
             return <Modal addRoomTextHandler={this.addRoomTextHandler} addRoomText={this.addRoomText}
@@ -46,7 +41,7 @@ export default class RoomList extends Component {
         if (this.state.isRoomLoaded) {
             let renderedRoomDom = []
             for (let room of this.state.rooms) {
-                renderedRoomDom.push(<a key={room.key} onClick={this.handleEnterRoom.bind(this,room.key)} className={this.state.currentRoom.key===room.key?'selected':null}>{room.name}</a>)
+                renderedRoomDom.push(<a key={room.key} onClick={()=>this.props.handleEnterRoom(room)} className={this.props.currentRoom===room?'selected':null}>{room.name}</a>)
             }
             return (
                 <div className="sidebar">
